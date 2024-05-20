@@ -3,6 +3,22 @@ name: otus-mlops-mlflow
 entry_points:
   main:
     parameters:
+      train_path: {type: str, default: 'data/train_data.csv'}
+      test_path: {type: str, default: 'data/test_data.csv'}
+      model_path: {type: str, default: 'data/model.pth'}
+      loss_function: {type: str, default: 'CrossEntropyLoss'}
+      metric_function: {type: str, default: 'Accuracy'}
+      optimizer_class: {type: str, default: 'SGD'}
+      epochs: {type: int, default: 3}
+      batch_size: {type: int, default: 32}
       lr: {type: float, default: 0.01}
-    command:
-      python src/main.py --lr={lr}
+    command: |
+      python src/main.py \
+         --train-path={train_path} \
+         --test-path={test_path} \
+         --model-path={model_path} \
+         --loss-function={loss_function} \
+         --optimizer-class={optimizer_class} \
+         --epochs={epochs} \
+         --batch-size={batch_size} \
+         --lr={lr} 
