@@ -26,7 +26,7 @@ def main(
   train_scaled_path = train_path.with_suffix('.npy')
   test_scaled_path = test_path.with_suffix('.npy')
 
-  mlflow.set_experiment('otus_1')
+  mlflow.set_experiment('otus_exp')
 
   with mlflow.start_run():
 
