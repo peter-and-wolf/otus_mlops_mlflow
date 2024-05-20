@@ -3,9 +3,9 @@ name: otus-mlops-mlflow
 entry_points:
   main:
     parameters:
-      train_path: {type: str, default: 'data/train_data.csv'}
-      test_path: {type: str, default: 'data/test_data.csv'}
-      model_path: {type: str, default: 'data/model.pth'}
+      train_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/train_data.csv'}
+      test_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/test_data.csv'}
+      model_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/model.pth'}
       loss_function: {type: str, default: 'CrossEntropyLoss'}
       metric_function: {type: str, default: 'Accuracy'}
       optimizer_class: {type: str, default: 'SGD'}
