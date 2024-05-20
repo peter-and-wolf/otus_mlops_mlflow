@@ -8,6 +8,9 @@ from torch.utils.data import DataLoader
 import torchmetrics
 
 import mlflow
+from mlflow.models import infer_signature, ModelSignature
+from mlflow.types import Schema, TensorSpec
+from mlflow.models import ModelSignature
 
 from model import MNISTClassifier, MNISTDatasetCsv
 
@@ -16,7 +19,7 @@ def eval(test_dataloader: DataLoader,
          loss_fn: Callable,
          metric_fn: Callable,
          model: MNISTClassifier,
-         epoch: int = None) -> tuple[float, float]:
+         epoch: int = None) -> tuple[float, float, ModelSignature]:
    
   num_batches = len(test_dataloader)
 
@@ -27,7 +30,7 @@ def eval(test_dataloader: DataLoader,
       pred = model(X)
       eval_loss += loss_fn(pred, y).item()
       eval_metric += metric_fn(pred, y)
-    
+
     eval_loss /= num_batches
     eval_metric /= num_batches
 
@@ -61,7 +64,15 @@ def test(test_path: str,
 
   mlflow.log_metric('best_loss', best_loss)
   mlflow.log_metric('best_accuracy', best_accuracy)
-  mlflow.pytorch.log_model(model, 'model')
+
+  input_schema = Schema([TensorSpec(np.dtype(np.float32), (-1, 1, 28, 28))])
+  output_schema = Schema([TensorSpec(np.dtype(np.float32), (-1, 10))])
+  signature = ModelSignature(inputs=input_schema, outputs=output_schema)
+  mlflow.pytorch.log_model(
+    model, 
+    'model', 
+    signature=signature, 
+    code_paths=['src/model.py']
+  )
 
   print(f'Best metrics: \n Accuracy {best_accuracy:.2f}, Best Avg loss: {best_loss:2f} \n')
-  
