@@ -4,6 +4,7 @@ import typer
 from typing_extensions import Annotated
 
 import mlflow
+import dvc.api
 
 from scale import scale
 from train import train
@@ -30,6 +31,8 @@ def main(
   with mlflow.start_run():
 
     mlflow.log_params({
+      'train_data': dvc.api.get_url(train_path),
+      'test_data': dvc.api.get_url(test_path), 
       'loss_function': loss_function,
       'metric_function': metric_function,
       'optimizer_class': optimizer_class,
