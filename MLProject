@@ -1,5 +1,7 @@
 name: otus-mlops-mlflow
 
+python_env: python_env.yaml
+
 entry_points:
   main:
     parameters:
