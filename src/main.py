@@ -31,8 +31,8 @@ def main(
   with mlflow.start_run():
 
     mlflow.log_params({
-      #'train_data': dvc.api.get_url(train_path),
-      #'test_data': dvc.api.get_url(test_path), 
+      'train_data': dvc.api.get_url(str(train_path)),
+      'test_data': dvc.api.get_url(str(test_path)), 
       'loss_function': loss_function,
       'metric_function': metric_function,
       'optimizer_class': optimizer_class,
