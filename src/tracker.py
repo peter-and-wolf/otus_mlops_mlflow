@@ -14,6 +14,7 @@ class ExperimentTracker(Protocol):
   def log_model(self, 
                 model: torch.nn.Module, 
                 name: str, 
+                input_example: Any | None,
                 code_paths: list[str] | None):
     """ Logs a model as an artefact """
 

@@ -25,10 +25,12 @@ class MLFlowTracker:
   def log_model(self, 
                 model: torch.nn.Module, 
                 name: str, 
+                input_example: Any | None,
                 code_paths: list[str] | None):
     mlflow.pytorch.log_model( # type: ignore [attr-defined]
       model, 
       name, 
+      input_example=input_example,
       code_paths=code_paths
     )
 

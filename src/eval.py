@@ -2,6 +2,7 @@
 from pathlib import Path
 from typing import Annotated, Any, Callable
 
+import numpy as np
 import torch
 from torch import nn
 import torchmetrics
@@ -30,6 +31,7 @@ def eval(
   tracker.log_model(
     model=model,
     name='MNISTClassifier',
+    input_example=np.zeros(shape=(1, 1, 28, 28), dtype=np.float32),
     code_paths=['src/model.py']
   )
 
