@@ -4,9 +4,6 @@ import torch
 
 
 class ExperimentTracker(Protocol):
-
-  def set_experiment(self, name: str) -> None:
-    """ Sets name of an experiment """
     
   def log_params(self, params: dict[str, Any]) -> None:
     """ Logs a bunch of hyperparams """

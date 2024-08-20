@@ -1,0 +1,25 @@
+name: otus-mlops-mlflow
+
+python_env: python_env.yaml
+
+entry_points:
+  main:
+    parameters:
+      train_csv_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/train_data.csv'}
+      test_csv_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/test_data.csv'}
+      train_npy_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/train_data.npy'}
+      test_npy_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/test_data.npy'}
+      model_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/model.pth'}
+      epochs: {type: int, default: 9}
+      batch_size: {type: int, default: 32}
+      lr: {type: float, default: 0.01}
+    command: |
+      python src/main.py \
+         --train-csv-path={train_csv_path} \
+         --test-csv-path={test_csv_path} \
+         --train-npy-path={train_npy_path} \
+         --test-npy-path={test_npy_path} \
+         --model-path={model_path} \
+         --epochs={epochs} \
+         --batch-size={batch_size} \
+         --lr={lr} 

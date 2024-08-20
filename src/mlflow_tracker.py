@@ -16,9 +16,6 @@ class MLFlowTracker:
   def stop_run(self):
     mlflow.end_run()
 
-  def set_experiment(self, name: str) -> None:
-    mlflow.set_experiment(name)  # type: ignore [attr-defined]
-
   def log_params(self, params: dict[str, Any]) -> None:
     mlflow.log_params(params) # type: ignore [attr-defined]
 
@@ -37,12 +34,9 @@ class MLFlowTracker:
 
 
 @contextmanager
-def start_tracker(name: str | None = None):
+def start_tracker():
   tracker = MLFlowTracker()
-  
-  if name is not None:
-    tracker.set_experiment(name)
-  
+
   tracker.start_run()
   try:
     yield tracker

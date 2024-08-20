@@ -18,7 +18,6 @@ from eval import eval
 
 
 def main(
-    experiment: Annotated[str, typer.Option()] = 'otus_expr',
     train_csv_path: Annotated[Path, typer.Option()] = Path('data/train_data.csv'),
     test_csv_path: Annotated[Path, typer.Option()] = Path('data/test_data.csv'),
     train_npy_path: Annotated[Path, typer.Option()] = Path('data/train_data.npy'),
@@ -46,7 +45,7 @@ def main(
     X_test = torch.tensor(test_data[:, 1:]).float().reshape(test_data.shape[0], 1, 28, 28)
     y_test = torch.tensor(test_data[:, 0]).long()
 
-    with start_tracker(name=experiment) as tracker:
+    with start_tracker() as tracker:
       
       tracker.log_params({
         'loss_function': 'CrossEntropyLoss',
