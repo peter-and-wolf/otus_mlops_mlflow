@@ -11,7 +11,8 @@ import torchmetrics
 from model import MNISTClassifier
 from dataset import get_dataloaders
 from tracker import ExperimentTracker
-from mlflow_tracker import start_tracker
+#from mlflow_tracker import start_tracker
+from dvc_tracker import start_tracker
 from preprocess import preprocess
 from train import train
 from eval import eval
