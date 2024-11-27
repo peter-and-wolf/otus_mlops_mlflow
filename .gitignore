@@ -163,3 +163,4 @@ cython_debug/
 .python-version
 .DS_Store
 index.html
+env_ya.sh
