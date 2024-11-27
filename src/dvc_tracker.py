@@ -26,7 +26,6 @@ class DvcTracker:
                 model: Any, 
                 input_example: Any | None,
                 code_paths: list[str] | None):
-    #model_path = f'{self.base_path}/{name}.pt'
     model_path = f'data/{name}.pt'
     torch.save(model.state_dict(), model_path)
     self.live.log_artifact(
@@ -37,7 +36,7 @@ class DvcTracker:
 
 
 @contextmanager
-def start_tracker():
-  with dvclive.Live() as live:
+def start_tracker(resume=False):
+  with dvclive.Live(resume=resume) as live:
     tracker = DvcTracker(live)
     yield tracker

@@ -26,8 +26,8 @@ def eval(
   pred = model(X)
   loss = loss_fn(pred, y)
   accuracy = metric_fn(pred, y)
-  tracker.log_metric('loss', loss)
-  tracker.log_metric('accuracy', accuracy)
+  tracker.log_metric('eval/loss', loss)
+  tracker.log_metric('eval/accuracy', accuracy)
   tracker.log_model(
     model=model,
     name='MNISTClassifier',
@@ -48,7 +48,7 @@ def main(
   model = MNISTClassifier()
   model.load_state_dict(torch.load(model_path, weights_only=True))
 
-  with start_tracker() as tracker:
+  with start_tracker(resume=True) as tracker:
 
     loss_fn = nn.CrossEntropyLoss()
     metric_fn = torchmetrics.Accuracy(task='multiclass', num_classes=10)
