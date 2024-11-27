@@ -9,8 +9,8 @@ entry_points:
       test_csv_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/test_data.csv'}
       train_npy_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/train_data.npy'}
       test_npy_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/test_data.npy'}
-      model_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/model.pth'}
-      epochs: {type: int, default: 9}
+      model_path: {type: str, default: '/Users/peter/Projects/otus/mlops/mlflow/otus_mlops_mlflow/data/model.pt'}
+      epochs: {type: int, default: 2}
       batch_size: {type: int, default: 32}
       lr: {type: float, default: 0.01}
     command: |
