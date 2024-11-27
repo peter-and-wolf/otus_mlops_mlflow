@@ -1,5 +1,0 @@
-[core]
-    remote = myremote
-['remote "myremote"']
-    url = s3://otus-dvc-bucket
-    endpointurl = http://localhost:9000

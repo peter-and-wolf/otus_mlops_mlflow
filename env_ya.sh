@@ -1,4 +1,0 @@
-export MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
-export MLFLOW_TRACKING_URI=http://51.250.43.123:8000
-export AWS_ACCESS_KEY_ID=YCAJEZN1Ejw77AvxSTlONID1n
-export AWS_SECRET_ACCESS_KEY=YCMo_f_N62sKzJ5j3yXBpjoc8wgimDsoFZ-mo4Pt

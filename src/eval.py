@@ -12,7 +12,7 @@ import typer
 
 from model import MNISTClassifier
 from tracker import ExperimentTracker
-from mlflow_tracker import start_tracker
+from dvc_tracker import start_tracker
 
 
 def eval(

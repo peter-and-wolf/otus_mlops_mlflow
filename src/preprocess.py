@@ -10,7 +10,7 @@ import typer
 def preprocess(
   train_in_path: Annotated[Path, typer.Option()] = Path('data/train_data.csv'),
   test_in_path: Annotated[Path, typer.Option()] = Path('data/test_data.csv'),
-  train_out_path: Annotated[Path, typer.Option()] = Path('data/test_data.npy'),
+  train_out_path: Annotated[Path, typer.Option()] = Path('data/train_data.npy'),
   test_out_path: Annotated[Path, typer.Option()] = Path('data/test_data.npy')
   ) -> None:
 

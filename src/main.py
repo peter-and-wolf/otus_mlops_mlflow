@@ -12,7 +12,6 @@ from model import MNISTClassifier
 from dataset import get_dataloaders
 from tracker import ExperimentTracker
 from mlflow_tracker import start_tracker
-#from dvc_tracker import start_tracker
 from preprocess import preprocess
 from train import train
 from eval import eval
@@ -23,7 +22,7 @@ def main(
     test_csv_path: Annotated[Path, typer.Option()] = Path('data/test_data.csv'),
     train_npy_path: Annotated[Path, typer.Option()] = Path('data/train_data.npy'),
     test_npy_path: Annotated[Path, typer.Option()] = Path('data/test_data.npy'),
-    model_path: Annotated[Path, typer.Option] = Path('data/model.pth'),
+    model_path: Annotated[Path, typer.Option] = Path('data/model.pt'),
     epochs: Annotated[int, typer.Option()] = 9, 
     batch_size: Annotated[int, typer.Option()] = 32, 
     lr: Annotated[float, typer.Option()] = .01

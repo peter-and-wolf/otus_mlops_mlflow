@@ -9,9 +9,8 @@ import dvclive
 
 class DvcTracker:
   
-  def __init__(self, live: dvclive.Live, base_path: Path = Path('./data/')):
+  def __init__(self, live: dvclive.Live):
     self.live = live
-    self.base_path = base_path
 
   def log_params(self, params: dict[str, Any]) -> None:
     self.live.log_params(params) 
@@ -27,7 +26,8 @@ class DvcTracker:
                 model: Any, 
                 input_example: Any | None,
                 code_paths: list[str] | None):
-    model_path = f'{self.base_path}/{name}.pt'
+    #model_path = f'{self.base_path}/{name}.pt'
+    model_path = f'data/{name}.pt'
     torch.save(model.state_dict(), model_path)
     self.live.log_artifact(
       model_path,
