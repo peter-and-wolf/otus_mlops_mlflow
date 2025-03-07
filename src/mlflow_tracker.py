@@ -9,7 +9,13 @@ import mlflow # type: ignore [import-untyped]
 class MLFlowTracker:
   
   def start_run(self):
-    mlflow.start_run()
+    try:
+      experiment = mlflow.get_experiment_by_name('otus')
+      experiment_id = experiment.experiment_id
+    except AttributeError:
+      experiment_id = mlflow.create_experiment('otus', artifact_location='s3://otus-mlflow-bucket/artifacts')
+    mlflow.start_run(experiment_id=experiment_id)
+    
 
   def stop_run(self):
     mlflow.end_run()

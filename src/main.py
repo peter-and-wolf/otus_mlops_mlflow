@@ -23,7 +23,7 @@ def main(
     train_npy_path: Annotated[Path, typer.Option()] = Path('data/train_data.npy'),
     test_npy_path: Annotated[Path, typer.Option()] = Path('data/test_data.npy'),
     model_path: Annotated[Path, typer.Option] = Path('data/model.pt'),
-    epochs: Annotated[int, typer.Option()] = 9, 
+    epochs: Annotated[int, typer.Option()] = 1, 
     batch_size: Annotated[int, typer.Option()] = 32, 
     lr: Annotated[float, typer.Option()] = .01
   ):

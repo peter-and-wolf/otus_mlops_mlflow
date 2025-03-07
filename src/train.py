@@ -3,7 +3,7 @@ from typing import Annotated, Callable
 
 
 import typer
-from tqdm import tqdm as progress
+from tqdm import tqdm as progress # type: ignore
 
 import torch
 from torch import nn
@@ -13,7 +13,7 @@ import torchmetrics
 from model import MNISTClassifier
 from dataset import get_dataloaders
 from tracker import ExperimentTracker
-from dvc_tracker import start_tracker
+from mlflow_tracker import start_tracker
 
 
 def train(

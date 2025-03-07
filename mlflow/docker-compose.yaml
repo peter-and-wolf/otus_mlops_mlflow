@@ -81,7 +81,6 @@ services:
       mlflow server
       --backend-store-uri postgresql://${PG_USER}:${PG_PASSWORD}@db:5432/${PG_DATABASE}
       --host 0.0.0.0
-      --serve-artifacts
       --artifacts-destination s3://${MLFLOW_BUCKET_NAME}/artifacts
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/"]

@@ -12,7 +12,7 @@ import typer
 
 from model import MNISTClassifier
 from tracker import ExperimentTracker
-from dvc_tracker import start_tracker
+from mlflow_tracker import start_tracker
 
 
 def eval(
@@ -48,7 +48,7 @@ def main(
   model = MNISTClassifier()
   model.load_state_dict(torch.load(model_path, weights_only=True))
 
-  with start_tracker(resume=True) as tracker:
+  with start_tracker() as tracker:
 
     loss_fn = nn.CrossEntropyLoss()
     metric_fn = torchmetrics.Accuracy(task='multiclass', num_classes=10)
